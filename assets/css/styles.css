@@ -247,8 +247,10 @@ img {
   min-height: 600px;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.75)),
-    url("../images/WhatsApp Image 2025-10-31 at 16.10.29.jpeg") center/cover no-repeat;
+  background:
+    linear-gradient(180deg, rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.75)),
+    url("../images/WhatsApp Image 2025-10-31 at 16.10.29.jpeg") center/cover
+      no-repeat;
   color: var(--color-white);
   padding: 6rem 0;
 }
@@ -257,7 +259,11 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.35), rgba(22, 33, 62, 0.5));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 53, 0.35),
+    rgba(22, 33, 62, 0.5)
+  );
 }
 
 .hero .container {
@@ -599,7 +605,11 @@ img {
   font-family: "Montserrat", sans-serif;
   font-size: 1.75rem;
   color: var(--color-white);
-  background: linear-gradient(180deg, rgba(26, 26, 46, 0.1), rgba(26, 26, 46, 0.6));
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 46, 0.1),
+    rgba(26, 26, 46, 0.6)
+  );
 }
 
 .swiper-slide:hover img {
@@ -626,8 +636,10 @@ img {
 }
 
 .consultation {
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.9)),
-    url("../images/WhatsApp Image 2025-10-31 at 16.10.28 (1).jpeg") center/cover no-repeat;
+  background:
+    linear-gradient(135deg, rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.9)),
+    url("../images/WhatsApp Image 2025-10-31 at 16.10.28 (1).jpeg") center/cover
+      no-repeat;
   position: relative;
   color: var(--color-white);
 }
@@ -636,7 +648,11 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.65), rgba(26, 26, 46, 0.65));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 53, 0.65),
+    rgba(26, 26, 46, 0.65)
+  );
 }
 
 .consultation .container {
