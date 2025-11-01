@@ -1,0 +1,11 @@
+<svg width="320" height="120" viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="120" fill="white"/>
+  <circle cx="60" cy="60" r="45" fill="#14213D"/>
+  <rect x="57" y="30" width="6" height="36" rx="3" fill="#F0544C"/>
+  <rect x="57" y="72" width="6" height="18" rx="3" fill="white"/>
+  <text x="120" y="72" font-family="Poppins, 'Segoe UI', sans-serif" font-weight="700" font-size="48" fill="#14213D">DESIGNS</text>
+  <text x="120" y="95" font-family="Poppins, 'Segoe UI', sans-serif" font-weight="500" font-size="16" letter-spacing="4" fill="#6B7280">THE JOY OF BEST LIVING</text>
+  <path d="M102 60 H150" stroke="#14213D" stroke-width="6" stroke-linecap="round"/>
+  <path d="M150 60 L190 30" stroke="#14213D" stroke-width="6" stroke-linecap="round"/>
+  <path d="M190 30 V50" stroke="#14213D" stroke-width="6" stroke-linecap="round"/>
+</svg>
