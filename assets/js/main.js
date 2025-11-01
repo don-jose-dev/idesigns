@@ -99,7 +99,7 @@ ready(() => {
 
   document.addEventListener('click', (event) => {
     if (!callPopup || callPopup.hasAttribute('hidden')) return;
-    if (event.target === callToggle || callPopup.contains(event.target)) return;
+    if (callToggle?.contains(event.target) || callPopup.contains(event.target)) return;
     toggleCallPopup(false);
   });
 });
