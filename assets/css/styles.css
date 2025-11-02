@@ -955,6 +955,11 @@ textarea {
   z-index: 1000;
 }
 
+.floating-button.is-active {
+  animation: none;
+  box-shadow: var(--shadow-hover);
+}
+
 .floating-button span {
   font-size: 1.5rem;
 }
