@@ -211,11 +211,12 @@ img {
 
 .hero {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   min-height: 600px;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.75)),
-    url("../images/WhatsApp Image 2025-10-31 at 16.10.29.jpeg") center/cover no-repeat;
+  background-color: var(--color-navy-dark);
   color: var(--color-white);
   padding: 6rem 0;
 }
@@ -225,14 +226,54 @@ img {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(255, 107, 53, 0.35), rgba(22, 33, 62, 0.5));
+  z-index: 1;
 }
 
 .hero .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__media::before {
+  content: "";
+  position: absolute;
+  inset: -5%;
+  background: url("../images/WhatsApp Image 2025-10-31 at 16.10.29.jpeg") center/cover no-repeat;
+  filter: saturate(1.15);
+  transform: scale(1) translate3d(0, 0, 0);
+  transform-origin: center;
+  animation: hero-pan 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes hero-pan {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.12) translate3d(2%, -1%, 0);
+  }
+  100% {
+    transform: scale(1.18) translate3d(-2%, 1%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__media::before {
+    animation: none;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
 }
 
 .hero__content {
@@ -913,6 +954,11 @@ textarea {
   transition: var(--transition);
   animation: pulse 2.5s infinite;
   z-index: 1000;
+}
+
+.floating-button.is-active {
+  animation: none;
+  box-shadow: var(--shadow-hover);
 }
 
 .floating-button span {

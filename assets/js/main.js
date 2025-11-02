@@ -80,26 +80,56 @@ ready(() => {
 
   const callToggle = document.querySelector('.call-toggle');
   const callPopup = document.getElementById('call-popup');
-  const callClose = document.querySelector('.call-popup__close');
+  const callClose = callPopup ? callPopup.querySelector('.call-popup__close') : null;
 
-  const toggleCallPopup = (show) => {
-    if (!callPopup) return;
-    const shouldShow = typeof show === 'boolean' ? show : callPopup.hasAttribute('hidden');
-    if (shouldShow) {
-      callPopup.removeAttribute('hidden');
-      callToggle?.setAttribute('aria-expanded', 'true');
-    } else {
-      callPopup.setAttribute('hidden', '');
-      callToggle?.setAttribute('aria-expanded', 'false');
+  if (callToggle && callPopup) {
+    const setPopupVisibility = (isVisible) => {
+      if (isVisible) {
+        callPopup.removeAttribute('hidden');
+        callToggle.setAttribute('aria-expanded', 'true');
+        callToggle.classList.add('is-active');
+      } else {
+        callPopup.setAttribute('hidden', '');
+        callToggle.setAttribute('aria-expanded', 'false');
+        callToggle.classList.remove('is-active');
+      }
+    };
+
+    const isPopupOpen = () => !callPopup.hasAttribute('hidden');
+
+    const closePopup = () => {
+      if (!isPopupOpen()) return;
+      setPopupVisibility(false);
+    };
+
+    callToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      setPopupVisibility(!isPopupOpen());
+    });
+
+    if (callClose) {
+      callClose.addEventListener('click', (event) => {
+        event.stopPropagation();
+        closePopup();
+      });
     }
-  };
 
-  callToggle?.addEventListener('click', () => toggleCallPopup());
-  callClose?.addEventListener('click', () => toggleCallPopup(false));
+    callPopup.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        setTimeout(closePopup, 100);
+      });
+    });
 
-  document.addEventListener('click', (event) => {
-    if (!callPopup || callPopup.hasAttribute('hidden')) return;
-    if (event.target === callToggle || callPopup.contains(event.target)) return;
-    toggleCallPopup(false);
-  });
+    document.addEventListener('click', (event) => {
+      if (!isPopupOpen()) return;
+      if (callPopup.contains(event.target) || callToggle.contains(event.target)) return;
+      closePopup();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closePopup();
+      }
+    });
+  }
 });
