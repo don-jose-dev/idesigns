@@ -126,10 +126,9 @@ ready(() => {
       closePopup();
     });
 
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        closePopup();
-      }
-    });
-  }
+  document.addEventListener('click', (event) => {
+    if (!callPopup || callPopup.hasAttribute('hidden')) return;
+    if (callToggle?.contains(event.target) || callPopup.contains(event.target)) return;
+    toggleCallPopup(false);
+  });
 });
