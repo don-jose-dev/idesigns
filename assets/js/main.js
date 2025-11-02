@@ -78,28 +78,4 @@ ready(() => {
     });
   }
 
-  const callToggle = document.querySelector('.call-toggle');
-  const callPopup = document.getElementById('call-popup');
-  const callClose = document.querySelector('.call-popup__close');
-
-  const toggleCallPopup = (show) => {
-    if (!callPopup) return;
-    const shouldShow = typeof show === 'boolean' ? show : callPopup.hasAttribute('hidden');
-    if (shouldShow) {
-      callPopup.removeAttribute('hidden');
-      callToggle?.setAttribute('aria-expanded', 'true');
-    } else {
-      callPopup.setAttribute('hidden', '');
-      callToggle?.setAttribute('aria-expanded', 'false');
-    }
-  };
-
-  callToggle?.addEventListener('click', () => toggleCallPopup());
-  callClose?.addEventListener('click', () => toggleCallPopup(false));
-
-  document.addEventListener('click', (event) => {
-    if (!callPopup || callPopup.hasAttribute('hidden')) return;
-    if (event.target === callToggle || callPopup.contains(event.target)) return;
-    toggleCallPopup(false);
-  });
 });
