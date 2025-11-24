@@ -104,7 +104,9 @@ img {
   background: var(--color-orange);
   color: var(--color-white);
   font-size: 0.9rem;
-  padding: 0.5rem 0;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .top-bar .container {
@@ -112,6 +114,7 @@ img {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  min-height: 40px;
 }
 
 .top-bar__left,
@@ -119,6 +122,10 @@ img {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+.top-bar__label {
+  font-weight: 600;
 }
 
 .top-bar__left a {
@@ -214,7 +221,7 @@ img {
   min-height: 600px;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.75)),
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.5), rgba(26, 26, 46, 0.5)),
     url("../images/WhatsApp Image 2025-10-31 at 16.10.29.jpeg") center/cover no-repeat;
   color: var(--color-white);
   padding: 6rem 0;
@@ -224,7 +231,7 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.35), rgba(22, 33, 62, 0.5));
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.25), rgba(22, 33, 62, 0.35));
 }
 
 .hero .container {
@@ -261,8 +268,8 @@ img {
 }
 
 .hero__content p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.1rem, 1vw + 1rem, 1.5rem);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2rem;
 }
 
@@ -270,6 +277,10 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.hero__actions .btn {
+  min-width: 200px;
 }
 
 .hero__scroll {
