@@ -232,7 +232,11 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.35), rgba(22, 33, 62, 0.5));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 53, 0.35),
+    rgba(22, 33, 62, 0.5)
+  );
   z-index: 1;
 }
 
@@ -255,13 +259,13 @@ img {
 .hero__media::before {
   content: "";
   position: absolute;
-  inset: -5%;
-  background: url("../images/WhatsApp%20Image%202025-11-05%20at%2011.51.34.jpeg") center/cover no-repeat;
+  inset: 0;
+  background-image: url("../images/WhatsApp%20Image%202025-11-05%20at%2011.51.34.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(--color-navy-dark);
   filter: saturate(1.15);
-  transform: scale(1) translate3d(0, 0, 0);
-  transform-origin: center;
-  animation: hero-pan 26s ease-in-out infinite alternate;
-  will-change: transform;
 }
 
 @keyframes hero-pan {
@@ -508,15 +512,18 @@ img {
 }
 
 .process-card__icon {
-  height: 120px;
-  overflow: hidden;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-md);
+  background: var(--color-gray-soft);
 }
 
 .process-card__icon img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-md);
 }
 
@@ -600,12 +607,17 @@ img {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-md);
+  background: var(--color-gray-soft);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .swiper-slide img {
   width: 100%;
-  height: 400px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
   transition: var(--transition);
 }
 
@@ -618,7 +630,11 @@ img {
   font-family: "Montserrat", sans-serif;
   font-size: 1.75rem;
   color: var(--color-white);
-  background: linear-gradient(180deg, rgba(26, 26, 46, 0.1), rgba(26, 26, 46, 0.6));
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 46, 0.1),
+    rgba(26, 26, 46, 0.6)
+  );
 }
 
 .swiper-slide:hover img {
@@ -645,22 +661,37 @@ img {
 }
 
 .consultation {
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.9)),
-    url("../images/WhatsApp%20Image%202025-10-31%20at%2016.10.28.jpeg") center/cover no-repeat;
   position: relative;
   color: var(--color-white);
+  background: var(--color-navy-dark);
+  overflow: hidden;
+}
+
+.consultation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../images/WhatsApp%20Image%202025-10-31%20at%2016.10.28.jpeg")
+    center/contain no-repeat;
+  background-color: var(--color-navy-dark);
+  z-index: 0;
 }
 
 .consultation::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.65), rgba(26, 26, 46, 0.65));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 53, 0.65),
+    rgba(26, 26, 46, 0.65)
+  );
+  z-index: 1;
 }
 
 .consultation .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   gap: 3rem;
 }
@@ -761,6 +792,15 @@ textarea {
   background: var(--color-white);
 }
 
+.partner__media {
+  background: var(--color-gray-soft);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .partner__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -770,8 +810,9 @@ textarea {
 
 .partner__media img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
 }
 
 .partner__content h2 {
@@ -813,8 +854,10 @@ textarea {
 
 .services-grid .service-card img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: var(--color-gray-soft);
 }
 
 .service-card__body {
@@ -1053,16 +1096,12 @@ textarea {
     padding: 0 1rem 3rem;
   }
 
-  .swiper-slide img {
-    height: 320px;
+  .swiper-slide figure {
+    aspect-ratio: 3 / 4;
   }
 
   .consultation__form-card {
     padding: 2rem;
-  }
-
-  .services-grid .service-card img {
-    height: 220px;
   }
 
   .footer__bottom {
@@ -1090,8 +1129,8 @@ textarea {
     font-size: 4rem;
   }
 
-  .swiper-slide img {
-    height: 260px;
+  .swiper-slide figure {
+    aspect-ratio: 3 / 4.2;
   }
 
   .floating-button {
