@@ -256,7 +256,7 @@ img {
   content: "";
   position: absolute;
   inset: -5%;
-  background: url("../images/WhatsApp Image 2025-11-05 at 11.51.34.jpeg") center/cover no-repeat;
+  background: url("../images/WhatsApp%20Image%202025-11-05%20at%2011.51.34.jpeg") center/cover no-repeat;
   filter: saturate(1.15);
   transform: scale(1) translate3d(0, 0, 0);
   transform-origin: center;
@@ -646,7 +646,7 @@ img {
 
 .consultation {
   background: linear-gradient(135deg, rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.9)),
-    url("../images/WhatsApp Image 2025-10-31 at 16.10.28.jpeg") center/cover no-repeat;
+    url("../images/WhatsApp%20Image%202025-10-31%20at%2016.10.28.jpeg") center/cover no-repeat;
   position: relative;
   color: var(--color-white);
 }
