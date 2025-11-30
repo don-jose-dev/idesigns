@@ -646,7 +646,7 @@ img {
 
 .consultation {
   background: linear-gradient(135deg, rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.9)),
-    url("../images/WhatsApp Image 2025-10-31 at 16.10.28 (1).jpeg") center/cover no-repeat;
+    url("../images/WhatsApp Image 2025-10-31 at 16.10.28.jpeg") center/cover no-repeat;
   position: relative;
   color: var(--color-white);
 }
