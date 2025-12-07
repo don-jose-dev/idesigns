@@ -260,7 +260,7 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../images/WhatsApp%20Image%202025-11-05%20at%2011.51.34.jpeg");
+  background-image: url("../images/Complete home interior.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -671,7 +671,7 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../images/WhatsApp%20Image%202025-10-31%20at%2016.10.28.jpeg")
+  background: url("../images/Complete home interior.jpeg")
     center/contain no-repeat;
   background-color: var(--color-navy-dark);
   z-index: 0;
