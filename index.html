@@ -21,20 +21,23 @@
     <div class="top-bar">
       <div class="container">
         <div class="top-bar__left">
-          <span aria-hidden="true">📞</span>
+          <span class="icon icon--phone" aria-hidden="true"></span>
           <span class="top-bar__label">Call Us:</span>
-          <a href="tel:+919746174404">+91 9746174404</a>
+          <a href="tel:+919746174404" class="tap-to-call">+91 9746174404</a>
           <span class="divider">|</span>
-          <a href="tel:+919567106678">+91 9567106678</a>
+          <a href="tel:+919567106678" class="tap-to-call">+91 9567106678</a>
         </div>
-        <div class="top-bar__right">GST: 29AAJFI4792C1Z4</div>
+        <div class="top-bar__right">
+          <span class="icon icon--badge" aria-hidden="true"></span>
+          GST: 29AAJFI4792C1Z4
+        </div>
       </div>
     </div>
 
     <header class="site-header" id="top">
       <div class="container">
         <a class="brand" href="#home" aria-label="iDesigns home">
-          <img src="assets/images/logo.jpeg" alt="iDesigns interior design logo" />
+          <img src="assets/images/logo.jpeg" alt="iDesigns interior design logo" loading="eager" />
         </a>
         <nav class="primary-nav" aria-label="Primary">
           <ul class="primary-nav__list">
@@ -59,16 +62,40 @@
     <main>
       <section class="hero" id="home">
         <div class="hero__media" aria-hidden="true"></div>
+        <div class="hero__overlay"></div>
         <div class="container">
           <div class="hero__content">
-            <span class="badge">✓ GST Registered | Established 2022</span>
+            <span class="badge">
+              <span class="icon icon--check" aria-hidden="true"></span>
+              GST Registered | Established 2022
+            </span>
             <h1>Best Interior Designers in Bengaluru</h1>
             <p>
               Transform Your Space with iDesigns - HSR Layout's Premier Interior Design Company delivering turnkey home and office interiors with precision, quality and personal care.
             </p>
             <div class="hero__actions">
-              <a class="btn btn--primary" href="#form">Get Free Consultation</a>
-              <a class="btn btn--ghost" href="#gallery">View Our Work</a>
+              <a class="btn btn--primary btn--large" href="#form">
+                <span class="icon icon--sparkle" aria-hidden="true"></span>
+                Get Free Consultation
+              </a>
+              <a class="btn btn--ghost" href="#gallery">
+                <span class="icon icon--gallery" aria-hidden="true"></span>
+                View Our Work
+              </a>
+            </div>
+            <div class="hero__stats">
+              <div class="hero__stat">
+                <span class="hero__stat-number" data-counter="150">0</span>
+                <span class="hero__stat-label">Projects</span>
+              </div>
+              <div class="hero__stat">
+                <span class="hero__stat-number" data-counter="100">0</span>
+                <span class="hero__stat-label">% On-Time</span>
+              </div>
+              <div class="hero__stat">
+                <span class="hero__stat-number">4.9</span>
+                <span class="hero__stat-label">Rating</span>
+              </div>
             </div>
           </div>
           <div class="hero__scroll" aria-hidden="true">
@@ -99,32 +126,32 @@
           </div>
           <div class="why__grid stagger-children">
             <article class="why-card">
-              <span class="why-card__icon" aria-hidden="true">🎨</span>
+              <span class="why-card__icon icon icon--palette" aria-hidden="true"></span>
               <h3>Interior Fit Out</h3>
               <p>Complete turnkey execution with bespoke finishes crafted for your lifestyle.</p>
             </article>
             <article class="why-card">
-              <span class="why-card__icon" aria-hidden="true">👁️</span>
+              <span class="why-card__icon icon icon--eye" aria-hidden="true"></span>
               <h3>Site Supervision</h3>
               <p>Dedicated on-site experts ensure every detail is delivered as designed.</p>
             </article>
             <article class="why-card">
-              <span class="why-card__icon" aria-hidden="true">✨</span>
+              <span class="why-card__icon icon icon--star" aria-hidden="true"></span>
               <h3>Quality of Finish</h3>
               <p>Premium materials, immaculate joinery and meticulous finishing standards.</p>
             </article>
             <article class="why-card">
-              <span class="why-card__icon" aria-hidden="true">🎯</span>
+              <span class="why-card__icon icon icon--target" aria-hidden="true"></span>
               <h3>Design Supervision</h3>
               <p>End-to-end designer oversight from concept to installation.</p>
             </article>
             <article class="why-card">
-              <span class="why-card__icon" aria-hidden="true">🤝</span>
+              <span class="why-card__icon icon icon--handshake" aria-hidden="true"></span>
               <h3>Reliability</h3>
               <p>Committed timelines and transparent updates build lasting trust.</p>
             </article>
             <article class="why-card">
-              <span class="why-card__icon" aria-hidden="true">💰</span>
+              <span class="why-card__icon icon icon--wallet" aria-hidden="true"></span>
               <h3>Control of Cost</h3>
               <p>Value engineered solutions keep your project on budget without compromise.</p>
             </article>
@@ -139,19 +166,19 @@
           </div>
           <div class="promise__grid stagger-children">
             <article class="promise-card">
-              <span aria-hidden="true">✓</span>
+              <span class="icon icon--clock" aria-hidden="true"></span>
               <h3>Timely delivery</h3>
             </article>
             <article class="promise-card">
-              <span aria-hidden="true">✓</span>
+              <span class="icon icon--price" aria-hidden="true"></span>
               <h3>Best price</h3>
             </article>
             <article class="promise-card">
-              <span aria-hidden="true">✓</span>
+              <span class="icon icon--diamond" aria-hidden="true"></span>
               <h3>Top quality</h3>
             </article>
             <article class="promise-card">
-              <span aria-hidden="true">✓</span>
+              <span class="icon icon--lightbulb" aria-hidden="true"></span>
               <h3>Innovation &amp; Flexibility</h3>
             </article>
           </div>
@@ -168,7 +195,7 @@
           <div class="process__grid stagger-children">
             <article class="process-card">
               <div class="process-card__icon" aria-hidden="true">
-                <img src="assets/images/more M.jpeg" alt="Coffee cup consultation" />
+                <img src="assets/images/more M.jpeg" alt="Coffee cup consultation" loading="lazy" />
               </div>
               <span class="process-card__letter process-card__letter--m" aria-hidden="true">M</span>
               <h3>Meet</h3>
@@ -177,7 +204,7 @@
             </article>
             <article class="process-card">
               <div class="process-card__icon" aria-hidden="true">
-                <img src="assets/images/more O.jpeg" alt="Design palette" />
+                <img src="assets/images/more O.jpeg" alt="Design palette" loading="lazy" />
               </div>
               <span class="process-card__letter process-card__letter--o" aria-hidden="true">O</span>
               <h3>Opt</h3>
@@ -186,7 +213,7 @@
             </article>
             <article class="process-card">
               <div class="process-card__icon" aria-hidden="true">
-                <img src="assets/images/more R.jpeg" alt="Relaxing interior" />
+                <img src="assets/images/more R.jpeg" alt="Relaxing interior" loading="lazy" />
               </div>
               <span class="process-card__letter process-card__letter--r" aria-hidden="true">R</span>
               <h3>Relax</h3>
@@ -195,7 +222,7 @@
             </article>
             <article class="process-card">
               <div class="process-card__icon" aria-hidden="true">
-                <img src="assets/images/more E.jpeg" alt="Happy family at new home" />
+                <img src="assets/images/more E.jpeg" alt="Happy family at new home" loading="lazy" />
               </div>
               <span class="process-card__letter process-card__letter--e" aria-hidden="true">E</span>
               <h3>Enjoy</h3>
@@ -221,38 +248,62 @@
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <figure>
-                  <img src="assets/images/Complete home interior.jpeg" alt="Complete home interior design" />
-                  <figcaption>Turnkey Home Solutions</figcaption>
+                  <div class="img-skeleton"></div>
+                  <img src="assets/images/Complete home interior.jpeg" alt="Complete home interior design" loading="lazy" />
+                  <figcaption>
+                    <span class="slide-title">Turnkey Home Solutions</span>
+                    <span class="slide-price">Starting ₹3L</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="swiper-slide">
                 <figure>
-                  <img src="assets/images/modular kitchen.jpeg" alt="Contemporary modular kitchen" />
-                  <figcaption>Premium Kitchen Designs</figcaption>
+                  <div class="img-skeleton"></div>
+                  <img src="assets/images/modular kitchen.jpeg" alt="Contemporary modular kitchen" loading="lazy" />
+                  <figcaption>
+                    <span class="slide-title">Premium Kitchen Designs</span>
+                    <span class="slide-price">Starting ₹1.5L</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="swiper-slide">
                 <figure>
-                  <img src="assets/images/Living room designs.jpeg" alt="Modern living room interior" />
-                  <figcaption>Modern Living Spaces</figcaption>
+                  <div class="img-skeleton"></div>
+                  <img src="assets/images/Living room designs.jpeg" alt="Modern living room interior" loading="lazy" />
+                  <figcaption>
+                    <span class="slide-title">Modern Living Spaces</span>
+                    <span class="slide-price">Starting ₹2L</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="swiper-slide">
                 <figure>
-                  <img src="assets/images/Living room.jpeg" alt="Elegant living room interior" />
-                  <figcaption>Contemporary Interiors</figcaption>
+                  <div class="img-skeleton"></div>
+                  <img src="assets/images/Living room.jpeg" alt="Elegant living room interior" loading="lazy" />
+                  <figcaption>
+                    <span class="slide-title">Contemporary Interiors</span>
+                    <span class="slide-price">Starting ₹2.5L</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="swiper-slide">
                 <figure>
-                  <img src="assets/images/Living room interior.jpeg" alt="Elegant living room interior" />
-                  <figcaption>Luxury Home Design</figcaption>
+                  <div class="img-skeleton"></div>
+                  <img src="assets/images/Living room interior.jpeg" alt="Elegant living room interior" loading="lazy" />
+                  <figcaption>
+                    <span class="slide-title">Luxury Home Design</span>
+                    <span class="slide-price">Starting ₹5L</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="swiper-slide">
                 <figure>
-                  <img src="assets/images/office interior.jpeg" alt="Modern office workspace" />
-                  <figcaption>Professional Workspaces</figcaption>
+                  <div class="img-skeleton"></div>
+                  <img src="assets/images/office interior.jpeg" alt="Modern office workspace" loading="lazy" />
+                  <figcaption>
+                    <span class="slide-title">Professional Workspaces</span>
+                    <span class="slide-price">Starting ₹4L</span>
+                  </figcaption>
                 </figure>
               </div>
             </div>
@@ -270,24 +321,61 @@
             <p>Explore our stunning interior design projects</p>
             <span class="section-heading__bar"></span>
           </div>
+          <div class="gallery__filters reveal">
+            <button class="gallery__filter active" data-filter="all">All</button>
+            <button class="gallery__filter" data-filter="home">Home</button>
+            <button class="gallery__filter" data-filter="kitchen">Kitchen</button>
+            <button class="gallery__filter" data-filter="living">Living Room</button>
+            <button class="gallery__filter" data-filter="office">Office</button>
+          </div>
           <div class="gallery__grid stagger-children">
-            <div class="gallery__item">
-              <img src="assets/images/Complete home interior.jpeg" alt="Complete home interior design project" />
+            <div class="gallery__item" data-category="home" data-title="Complete Home Interior" data-desc="3BHK Apartment, HSR Layout">
+              <div class="img-skeleton"></div>
+              <img src="assets/images/Complete home interior.jpeg" alt="Complete home interior design project" loading="lazy" />
+              <div class="gallery__item-info">
+                <h4>Complete Home Interior</h4>
+                <p>3BHK Apartment</p>
+              </div>
             </div>
-            <div class="gallery__item">
-              <img src="assets/images/Living room designs.jpeg" alt="Modern living room design" />
+            <div class="gallery__item" data-category="living" data-title="Modern Living Room" data-desc="Contemporary Design">
+              <div class="img-skeleton"></div>
+              <img src="assets/images/Living room designs.jpeg" alt="Modern living room design" loading="lazy" />
+              <div class="gallery__item-info">
+                <h4>Modern Living Room</h4>
+                <p>Contemporary Design</p>
+              </div>
             </div>
-            <div class="gallery__item">
-              <img src="assets/images/modular kitchen.jpeg" alt="Contemporary modular kitchen design" />
+            <div class="gallery__item" data-category="kitchen" data-title="Modular Kitchen" data-desc="L-Shape Premium Design">
+              <div class="img-skeleton"></div>
+              <img src="assets/images/modular kitchen.jpeg" alt="Contemporary modular kitchen design" loading="lazy" />
+              <div class="gallery__item-info">
+                <h4>Modular Kitchen</h4>
+                <p>L-Shape Premium</p>
+              </div>
             </div>
-            <div class="gallery__item">
-              <img src="assets/images/Living room.jpeg" alt="Elegant living room interior" />
+            <div class="gallery__item" data-category="living" data-title="Elegant Living Space" data-desc="Villa Interior">
+              <div class="img-skeleton"></div>
+              <img src="assets/images/Living room.jpeg" alt="Elegant living room interior" loading="lazy" />
+              <div class="gallery__item-info">
+                <h4>Elegant Living Space</h4>
+                <p>Villa Interior</p>
+              </div>
             </div>
-            <div class="gallery__item">
-              <img src="assets/images/Living room interior.jpeg" alt="Luxury living room interior design" />
+            <div class="gallery__item" data-category="home" data-title="Luxury Interior" data-desc="Premium 4BHK">
+              <div class="img-skeleton"></div>
+              <img src="assets/images/Living room interior.jpeg" alt="Luxury living room interior design" loading="lazy" />
+              <div class="gallery__item-info">
+                <h4>Luxury Interior</h4>
+                <p>Premium 4BHK</p>
+              </div>
             </div>
-            <div class="gallery__item">
-              <img src="assets/images/office interior.jpeg" alt="Professional office interior design" />
+            <div class="gallery__item" data-category="office" data-title="Office Interior" data-desc="Corporate Workspace">
+              <div class="img-skeleton"></div>
+              <img src="assets/images/office interior.jpeg" alt="Professional office interior design" loading="lazy" />
+              <div class="gallery__item-info">
+                <h4>Office Interior</h4>
+                <p>Corporate Workspace</p>
+              </div>
             </div>
           </div>
         </div>
@@ -301,51 +389,66 @@
           </div>
           <div class="services-grid__list stagger-children">
             <article class="service-card">
-              <img src="assets/images/Complete home interior.jpeg" alt="Complete home interiors" />
+              <div class="service-card__badge">Popular</div>
+              <div class="img-skeleton"></div>
+              <img src="assets/images/Complete home interior.jpeg" alt="Complete home interiors" loading="lazy" />
               <div class="service-card__body">
                 <h3>Complete Home Interiors</h3>
                 <p>End-to-end solutions for your dream home.</p>
-                <a href="#form">Learn More</a>
+                <span class="service-card__price">Starting ₹3L</span>
+                <a href="#form" class="btn btn--outline-sm">Get Quote</a>
               </div>
             </article>
             <article class="service-card">
-              <img src="assets/images/office interior.jpeg" alt="Office interiors" />
+              <div class="img-skeleton"></div>
+              <img src="assets/images/office interior.jpeg" alt="Office interiors" loading="lazy" />
               <div class="service-card__body">
                 <h3>Office Interiors</h3>
                 <p>Productive and inspiring workspaces.</p>
-                <a href="#form">Learn More</a>
+                <span class="service-card__price">Starting ₹4L</span>
+                <a href="#form" class="btn btn--outline-sm">Get Quote</a>
               </div>
             </article>
             <article class="service-card">
-              <img src="assets/images/Living room interior.jpeg" alt="Bedroom interiors" />
+              <div class="img-skeleton"></div>
+              <img src="assets/images/Living room interior.jpeg" alt="Bedroom interiors" loading="lazy" />
               <div class="service-card__body">
                 <h3>Bedroom Interiors</h3>
                 <p>Comfortable and elegant bedroom spaces.</p>
-                <a href="#form">Learn More</a>
+                <span class="service-card__price">Starting ₹1L</span>
+                <a href="#form" class="btn btn--outline-sm">Get Quote</a>
               </div>
             </article>
             <article class="service-card">
-              <img src="assets/images/Living room.jpeg" alt="Living room design" />
+              <div class="service-card__badge">Trending</div>
+              <div class="img-skeleton"></div>
+              <img src="assets/images/Living room.jpeg" alt="Living room design" loading="lazy" />
               <div class="service-card__body">
                 <h3>Living Room Design</h3>
                 <p>Stunning living spaces for your family.</p>
-                <a href="#form">Learn More</a>
+                <span class="service-card__price">Starting ₹2L</span>
+                <a href="#form" class="btn btn--outline-sm">Get Quote</a>
               </div>
             </article>
             <article class="service-card">
-              <img src="assets/images/modular kitchen.jpeg" alt="Modular kitchen design" />
+              <div class="service-card__badge">Best Seller</div>
+              <div class="img-skeleton"></div>
+              <img src="assets/images/modular kitchen.jpeg" alt="Modular kitchen design" loading="lazy" />
               <div class="service-card__body">
                 <h3>Modular Kitchen</h3>
                 <p>Functional and stylish kitchen designs.</p>
-                <a href="#form">Learn More</a>
+                <span class="service-card__price">Starting ₹1.5L</span>
+                <a href="#form" class="btn btn--outline-sm">Get Quote</a>
               </div>
             </article>
             <article class="service-card">
-              <img src="assets/images/Living room designs.jpeg" alt="Commercial space design" />
+              <div class="img-skeleton"></div>
+              <img src="assets/images/Living room designs.jpeg" alt="Commercial space design" loading="lazy" />
               <div class="service-card__body">
                 <h3>Commercial Spaces</h3>
                 <p>Retail and commercial interior solutions.</p>
-                <a href="#form">Learn More</a>
+                <span class="service-card__price">Starting ₹5L</span>
+                <a href="#form" class="btn btn--outline-sm">Get Quote</a>
               </div>
             </article>
           </div>
@@ -356,7 +459,7 @@
         <div class="container">
           <div class="partner__grid">
             <div class="partner__media reveal-left">
-              <img src="assets/images/Living room designs.jpeg" alt="iDesigns - Affordable Interior Partner" />
+              <img src="assets/images/Living room designs.jpeg" alt="iDesigns - Affordable Interior Partner" loading="lazy" />
             </div>
             <div class="partner__content reveal-right">
               <h2>An Affordable Interior Partner</h2>
@@ -370,10 +473,22 @@
                 With our turnkey project execution, we've become the trusted choice for hundreds of families in Bengaluru since 2022.
               </p>
               <ul class="partner__badges">
-                <li>✓ GST Registered: 29AAJFI4792C1Z4</li>
-                <li>✓ 150+ Projects Completed</li>
-                <li>✓ 100% On-Time Delivery</li>
-                <li>✓ Founded by Nithin K Chacko &amp; Jithin K Chacko</li>
+                <li>
+                  <span class="icon icon--check" aria-hidden="true"></span>
+                  GST Registered: 29AAJFI4792C1Z4
+                </li>
+                <li>
+                  <span class="icon icon--check" aria-hidden="true"></span>
+                  150+ Projects Completed
+                </li>
+                <li>
+                  <span class="icon icon--check" aria-hidden="true"></span>
+                  100% On-Time Delivery
+                </li>
+                <li>
+                  <span class="icon icon--check" aria-hidden="true"></span>
+                  Founded by Nithin K Chacko &amp; Jithin K Chacko
+                </li>
               </ul>
             </div>
           </div>
@@ -386,44 +501,80 @@
             <h2>Client Reviews</h2>
             <p>See why we're rated highly! Discover our clients' experiences.</p>
             <div class="reviews__rating" aria-label="4.9 out of 5 star rating">
-              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <div class="stars-container">
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+              </div>
               <span>4.9/5 (Based on 50+ reviews)</span>
             </div>
           </div>
           <div class="reviews__grid stagger-children">
             <article class="review-card">
-              <div class="review-card__stars" aria-hidden="true">⭐⭐⭐⭐⭐</div>
+              <div class="review-card__header">
+                <div class="review-card__avatar">RK</div>
+                <div class="review-card__meta">
+                  <strong>Rajesh Kumar</strong>
+                  <span>3 BHK Apartment · Oct 2024</span>
+                </div>
+              </div>
+              <div class="review-card__stars" aria-hidden="true">
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+              </div>
               <p>
                 "Excellent work by iDesigns team! They completed our 3BHK apartment interior in HSR Layout within the promised timeline. Nithin and Jithin were very professional and understood our requirements perfectly. Highly recommended!"
               </p>
-              <footer>
-                <strong>Rajesh Kumar</strong>
-                <span>3 BHK Apartment · Oct 2024</span>
-              </footer>
             </article>
             <article class="review-card">
-              <div class="review-card__stars" aria-hidden="true">⭐⭐⭐⭐⭐</div>
+              <div class="review-card__header">
+                <div class="review-card__avatar">PS</div>
+                <div class="review-card__meta">
+                  <strong>Priya Sharma</strong>
+                  <span>Kitchen Renovation · Sep 2024</span>
+                </div>
+              </div>
+              <div class="review-card__stars" aria-hidden="true">
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+              </div>
               <p>
                 "Best interior designers in Bengaluru! The quality of work is outstanding and the pricing was very reasonable. Our modular kitchen turned out exactly as we envisioned. Thank you iDesigns!"
               </p>
-              <footer>
-                <strong>Priya Sharma</strong>
-                <span>Kitchen Renovation · Sep 2024</span>
-              </footer>
             </article>
             <article class="review-card">
-              <div class="review-card__stars" aria-hidden="true">⭐⭐⭐⭐⭐</div>
+              <div class="review-card__header">
+                <div class="review-card__avatar">VR</div>
+                <div class="review-card__meta">
+                  <strong>Vikram Reddy</strong>
+                  <span>Office Interior · Aug 2024</span>
+                </div>
+              </div>
+              <div class="review-card__stars" aria-hidden="true">
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+                <span class="icon icon--star-filled"></span>
+              </div>
               <p>
                 "Professional, reliable, and creative! The team handled our office interior project smoothly. Great communication throughout and delivered on time. Worth every penny!"
               </p>
-              <footer>
-                <strong>Vikram Reddy</strong>
-                <span>Office Interior · Aug 2024</span>
-              </footer>
             </article>
           </div>
           <div class="reviews__cta reveal">
-            <a class="btn btn--ghost" href="https://www.google.com" target="_blank" rel="noopener">View All Reviews on Google →</a>
+            <a class="btn btn--ghost" href="https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review" target="_blank" rel="noopener">
+              <span class="icon icon--google" aria-hidden="true"></span>
+              View All Reviews on Google
+            </a>
           </div>
         </div>
       </section>
@@ -439,47 +590,59 @@
           </div>
           <div class="consultation__form-card reveal-scale">
             <h3>Get A Free Consultation</h3>
-            <form action="#" method="post">
-              <label>
-                <span>Name*</span>
-                <div class="input-wrapper">
-                  <span aria-hidden="true">👤</span>
-                  <input type="text" name="name" placeholder="Your Name" required />
-                </div>
-              </label>
-              <label>
-                <span>Phone Number*</span>
-                <div class="input-wrapper">
-                  <span aria-hidden="true">📞</span>
-                  <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required />
-                </div>
-              </label>
-              <label>
-                <span>Email</span>
-                <div class="input-wrapper">
-                  <span aria-hidden="true">✉️</span>
-                  <input type="email" name="email" placeholder="Your Email" />
-                </div>
-              </label>
-              <label>
-                <span>Property Type*</span>
-                <div class="input-wrapper">
-                  <span aria-hidden="true">🏡</span>
-                  <select name="property" required>
-                    <option value="" disabled selected>Select</option>
-                    <option>1 BHK</option>
-                    <option>2 BHK</option>
-                    <option>3 BHK</option>
-                    <option>Villa</option>
-                    <option>Office</option>
-                    <option>Commercial</option>
-                  </select>
-                </div>
-              </label>
-              <label>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="consultationForm" novalidate>
+              <div class="form-row">
+                <label class="form-group">
+                  <span>Name*</span>
+                  <div class="input-wrapper">
+                    <span class="icon icon--user" aria-hidden="true"></span>
+                    <input type="text" name="name" placeholder="Your Name" required minlength="2" />
+                    <span class="input-validation"></span>
+                  </div>
+                  <span class="error-message"></span>
+                </label>
+                <label class="form-group">
+                  <span>Phone Number*</span>
+                  <div class="input-wrapper">
+                    <span class="icon icon--phone" aria-hidden="true"></span>
+                    <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required pattern="[0-9+\s]{10,15}" />
+                    <span class="input-validation"></span>
+                  </div>
+                  <span class="error-message"></span>
+                </label>
+              </div>
+              <div class="form-row">
+                <label class="form-group">
+                  <span>Email</span>
+                  <div class="input-wrapper">
+                    <span class="icon icon--mail" aria-hidden="true"></span>
+                    <input type="email" name="email" placeholder="Your Email" />
+                    <span class="input-validation"></span>
+                  </div>
+                  <span class="error-message"></span>
+                </label>
+                <label class="form-group">
+                  <span>Property Type*</span>
+                  <div class="input-wrapper">
+                    <span class="icon icon--home" aria-hidden="true"></span>
+                    <select name="property" required>
+                      <option value="" disabled selected>Select</option>
+                      <option>1 BHK</option>
+                      <option>2 BHK</option>
+                      <option>3 BHK</option>
+                      <option>Villa</option>
+                      <option>Office</option>
+                      <option>Commercial</option>
+                    </select>
+                    <span class="input-validation"></span>
+                  </div>
+                  <span class="error-message"></span>
+                </label>
+              </div>
+              <label class="form-group">
                 <span>Budget Range</span>
                 <div class="input-wrapper">
-                  <span aria-hidden="true">💰</span>
+                  <span class="icon icon--wallet" aria-hidden="true"></span>
                   <select name="budget">
                     <option value="" disabled selected>Select</option>
                     <option>Under ₹5L</option>
@@ -489,16 +652,39 @@
                   </select>
                 </div>
               </label>
-              <label class="textarea">
+              <label class="form-group textarea">
                 <span>Your Message</span>
                 <div class="input-wrapper">
-                  <span aria-hidden="true">📝</span>
+                  <span class="icon icon--message" aria-hidden="true"></span>
                   <textarea name="message" rows="4" placeholder="Tell us about your project..."></textarea>
                 </div>
               </label>
-              <button class="btn btn--primary" type="submit">Submit Request →</button>
+              <button class="btn btn--primary btn--large" type="submit">
+                <span class="btn-text">Get My Free Design Quote</span>
+                <span class="btn-loader"></span>
+              </button>
             </form>
-            <p class="consultation__note">We'll get back to you within 24 hours! 📞 Call | 💬 WhatsApp</p>
+            <div class="form-trust">
+              <span>
+                <span class="icon icon--lock" aria-hidden="true"></span>
+                Your info is secure
+              </span>
+              <span>
+                <span class="icon icon--clock" aria-hidden="true"></span>
+                Response within 2 hours
+              </span>
+            </div>
+            <div class="form-alt">
+              <span>Or contact directly:</span>
+              <a class="btn btn--whatsapp-sm" href="https://wa.me/919746174404?text=Hi%20iDesigns%2C%20I'm%20interested%20in%20interior%20design%20services" target="_blank" rel="noopener">
+                <span class="icon icon--whatsapp" aria-hidden="true"></span>
+                WhatsApp Us
+              </a>
+              <a class="btn btn--call-sm" href="tel:+919746174404">
+                <span class="icon icon--phone" aria-hidden="true"></span>
+                Call Now
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -508,16 +694,24 @@
       <div class="container">
         <div class="footer__grid reveal">
           <div>
-            <img src="assets/images/logo.jpeg" alt="iDesigns logo" />
+            <img src="assets/images/logo.jpeg" alt="iDesigns logo" loading="lazy" />
             <p>
               Leading Interior Decorators and Interior Designers in HSR Layout, Bengaluru. Established in 2022 by passionate interior designers Nithin K Chacko and Jithin K Chacko, along with architects and decorators.
             </p>
             <p class="footer__gst">GST No: 29AAJFI4792C1Z4</p>
             <div class="footer__socials">
-              <a href="https://www.instagram.com" aria-label="Instagram">Instagram</a>
-              <a href="https://www.facebook.com" aria-label="Facebook">Facebook</a>
-              <a href="https://www.linkedin.com" aria-label="LinkedIn">LinkedIn</a>
-              <a href="https://www.pinterest.com" aria-label="Pinterest">Pinterest</a>
+              <a href="https://www.instagram.com" aria-label="Instagram" class="social-link">
+                <span class="icon icon--instagram" aria-hidden="true"></span>
+              </a>
+              <a href="https://www.facebook.com" aria-label="Facebook" class="social-link">
+                <span class="icon icon--facebook" aria-hidden="true"></span>
+              </a>
+              <a href="https://www.linkedin.com" aria-label="LinkedIn" class="social-link">
+                <span class="icon icon--linkedin" aria-hidden="true"></span>
+              </a>
+              <a href="https://www.pinterest.com" aria-label="Pinterest" class="social-link">
+                <span class="icon icon--pinterest" aria-hidden="true"></span>
+              </a>
             </div>
           </div>
           <div>
@@ -530,8 +724,6 @@
               <li><a href="#gallery">Gallery</a></li>
               <li><a href="#reviews">Reviews</a></li>
               <li><a href="#form">Contact Us</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms &amp; Conditions</a></li>
             </ul>
           </div>
           <div>
@@ -541,39 +733,53 @@
               <li><a href="#services">Modular Kitchen Design</a></li>
               <li><a href="#services">Bedroom Interiors</a></li>
               <li><a href="#services">Living Room Design</a></li>
-              <li><a href="#services">Living Room &amp; Lounge Interiors</a></li>
               <li><a href="#services">Office Interiors</a></li>
               <li><a href="#services">Commercial Design</a></li>
-              <li><a href="#services">3D Visualization</a></li>
             </ul>
           </div>
           <div>
             <h3>Get In Touch</h3>
             <address>
-              📍 Near ITI Layout Park<br />
+              <span class="icon icon--location" aria-hidden="true"></span>
+              Near ITI Layout Park<br />
               Ground Floor, No. 494,<br />
               2nd Cross, 8th Main Road,<br />
               HSR Layout, Bengaluru<br />
               Karnataka - 560068
             </address>
-            <p>
-              📞 <a href="tel:+919746174404">+91 9746174404</a><br />
-              📞 <a href="tel:+919567106678">+91 9567106678</a>
+            <p class="footer__contact">
+              <a href="tel:+919746174404">
+                <span class="icon icon--phone" aria-hidden="true"></span>
+                +91 9746174404
+              </a>
+              <a href="tel:+919567106678">
+                <span class="icon icon--phone" aria-hidden="true"></span>
+                +91 9567106678
+              </a>
+              <a href="mailto:idesigns.banglore@gmail.com">
+                <span class="icon icon--mail" aria-hidden="true"></span>
+                idesigns.banglore@gmail.com
+              </a>
             </p>
-            <p>
-              ✉️ <a href="mailto:idesigns.banglore@gmail.com">idesigns.banglore@gmail.com</a>
+            <p class="footer__hours">
+              <span class="icon icon--clock" aria-hidden="true"></span>
+              Mon-Sat: 10:00 AM - 7:00 PM<br />
+              Sunday: By Appointment
             </p>
-            <p class="footer__hours">Mon-Sat: 10:00 AM - 7:00 PM<br />Sunday: By Appointment</p>
-            <a class="btn btn--whatsapp" href="https://wa.me/919746174404?text=Hi%20iDesigns%2C%20I'm%20interested%20in%20interior%20design%20services" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+            <a class="btn btn--whatsapp" href="https://wa.me/919746174404?text=Hi%20iDesigns%2C%20I'm%20interested%20in%20interior%20design%20services" target="_blank" rel="noopener">
+              <span class="icon icon--whatsapp" aria-hidden="true"></span>
+              Chat on WhatsApp
+            </a>
           </div>
         </div>
         <div class="footer__bottom">
           <span>© 2024 iDesigns. All Rights Reserved.</span>
-          <span>Designed with ❤️ by iDesigns</span>
+          <span>Designed with <span class="heart">♥</span> by iDesigns</span>
         </div>
       </div>
     </footer>
 
+    <!-- Floating WhatsApp Button -->
     <a
       class="floating-button floating-button--whatsapp"
       href="https://wa.me/919746174404?text=Hi%20iDesigns%2C%20I'm%20interested%20in%20interior%20design%20services"
@@ -581,8 +787,53 @@
       rel="noopener"
       aria-label="WhatsApp iDesigns"
     >
-      <span aria-hidden="true">💬</span>
+      <span class="icon icon--whatsapp" aria-hidden="true"></span>
+      <span class="floating-button__tooltip">Chat with us!</span>
     </a>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top" type="button">
+      <span class="icon icon--arrow-up" aria-hidden="true"></span>
+    </button>
+
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta-bar">
+      <a href="tel:+919746174404" class="mobile-cta-bar__btn">
+        <span class="icon icon--phone" aria-hidden="true"></span>
+        <span>Call</span>
+      </a>
+      <a href="https://wa.me/919746174404?text=Hi%20iDesigns" class="mobile-cta-bar__btn mobile-cta-bar__btn--primary" target="_blank" rel="noopener">
+        <span class="icon icon--whatsapp" aria-hidden="true"></span>
+        <span>WhatsApp</span>
+      </a>
+      <a href="#form" class="mobile-cta-bar__btn">
+        <span class="icon icon--quote" aria-hidden="true"></span>
+        <span>Get Quote</span>
+      </a>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery">
+      <button class="lightbox__close" aria-label="Close gallery" type="button">
+        <span class="icon icon--close" aria-hidden="true"></span>
+      </button>
+      <button class="lightbox__prev" aria-label="Previous image" type="button">
+        <span class="icon icon--arrow-left" aria-hidden="true"></span>
+      </button>
+      <button class="lightbox__next" aria-label="Next image" type="button">
+        <span class="icon icon--arrow-right" aria-hidden="true"></span>
+      </button>
+      <div class="lightbox__content">
+        <img class="lightbox__image" src="" alt="" />
+        <div class="lightbox__caption">
+          <h4 class="lightbox__title"></h4>
+          <p class="lightbox__desc"></p>
+        </div>
+      </div>
+      <div class="lightbox__counter">
+        <span class="lightbox__current">1</span> / <span class="lightbox__total">6</span>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
     <script src="assets/js/main.js" defer></script>

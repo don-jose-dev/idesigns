@@ -1,6 +1,6 @@
 /**
  * iDesigns - Modern Interior Design Website
- * Enhanced JavaScript with animations and interactions
+ * Enhanced JavaScript with animations, interactions, and UX improvements
  */
 
 const ready = (callback) => {
@@ -54,8 +54,6 @@ ready(() => {
 
   // Header scroll effect
   if (header) {
-    let lastScroll = 0;
-    
     window.addEventListener("scroll", () => {
       const currentScroll = window.pageYOffset;
       
@@ -64,30 +62,28 @@ ready(() => {
       } else {
         header.classList.remove("scrolled");
       }
-      
-      lastScroll = currentScroll;
     }, { passive: true });
   }
 
   // ===== SCROLL REVEAL ANIMATIONS =====
   const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children");
   
+  const isMobile = window.innerWidth <= 768;
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
-          // Unobserve after animation to improve performance
           revealObserver.unobserve(entry.target);
         }
       });
     },
     {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px",
+      threshold: isMobile ? 0.05 : 0.15,
+      rootMargin: isMobile ? "0px 0px -30px 0px" : "0px 0px -50px 0px",
     }
   );
-
+  
   revealElements.forEach((el) => revealObserver.observe(el));
 
   // ===== SMOOTH ANCHOR SCROLLING =====
@@ -100,7 +96,8 @@ ready(() => {
       if (target) {
         e.preventDefault();
         const headerHeight = header ? header.offsetHeight : 0;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        const mobileBarHeight = window.innerWidth <= 768 ? 80 : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
         
         window.scrollTo({
           top: targetPosition,
@@ -132,18 +129,9 @@ ready(() => {
         dynamicBullets: true,
       },
       breakpoints: {
-        640: {
-          slidesPerView: 1.5,
-          spaceBetween: 24,
-        },
-        768: {
-          slidesPerView: 2.2,
-          spaceBetween: 28,
-        },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 32,
-        },
+        640: { slidesPerView: 1.5, spaceBetween: 24 },
+        768: { slidesPerView: 2.2, spaceBetween: 28 },
+        1024: { slidesPerView: 3, spaceBetween: 32 },
       },
       effect: "slide",
       grabCursor: true,
@@ -188,55 +176,241 @@ ready(() => {
     counters.forEach((counter) => counterObserver.observe(counter));
   }
 
-  // ===== FORM INTERACTIONS =====
-  const formInputs = document.querySelectorAll("input, select, textarea");
+  // ===== FORM VALIDATION =====
+  const consultationForm = document.getElementById("consultationForm");
   
-  formInputs.forEach((input) => {
-    // Add focus effects
-    input.addEventListener("focus", () => {
-      input.parentElement.classList.add("focused");
+  if (consultationForm) {
+    const validateField = (input) => {
+      const wrapper = input.parentElement;
+      const errorEl = wrapper.parentElement.querySelector(".error-message");
+      let isValid = true;
+      let errorMsg = "";
+      
+      // Remove previous states
+      wrapper.classList.remove("valid", "invalid");
+      
+      if (input.required && !input.value.trim()) {
+        isValid = false;
+        errorMsg = "This field is required";
+      } else if (input.type === "email" && input.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(input.value)) {
+          isValid = false;
+          errorMsg = "Please enter a valid email";
+        }
+      } else if (input.type === "tel" && input.value) {
+        const phoneRegex = /^[\d\s+()-]{10,15}$/;
+        if (!phoneRegex.test(input.value)) {
+          isValid = false;
+          errorMsg = "Please enter a valid phone number";
+        }
+      } else if (input.minLength && input.value.length < input.minLength) {
+        isValid = false;
+        errorMsg = `Minimum ${input.minLength} characters required`;
+      }
+      
+      if (input.value.trim()) {
+        wrapper.classList.add(isValid ? "valid" : "invalid");
+      }
+      
+      if (errorEl) {
+        errorEl.textContent = isValid ? "" : errorMsg;
+      }
+      
+      return isValid;
+    };
+    
+    // Real-time validation
+    consultationForm.querySelectorAll("input, select, textarea").forEach((input) => {
+      input.addEventListener("blur", () => validateField(input));
+      input.addEventListener("input", () => {
+        if (input.parentElement.classList.contains("invalid")) {
+          validateField(input);
+        }
+      });
     });
     
-    input.addEventListener("blur", () => {
-      input.parentElement.classList.remove("focused");
-      if (input.value) {
-        input.parentElement.classList.add("has-value");
-      } else {
-        input.parentElement.classList.remove("has-value");
-      }
-    });
-  });
-
-  // Form submission handling
-  const consultationForm = document.querySelector(".consultation form");
-  if (consultationForm) {
-    consultationForm.addEventListener("submit", (e) => {
+    // Form submission
+    consultationForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       
       const submitBtn = consultationForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
+      let isFormValid = true;
+      
+      // Validate all required fields
+      consultationForm.querySelectorAll("[required]").forEach((input) => {
+        if (!validateField(input)) {
+          isFormValid = false;
+        }
+      });
+      
+      if (!isFormValid) {
+        const firstError = consultationForm.querySelector(".invalid");
+        if (firstError) {
+          firstError.querySelector("input, select")?.focus();
+        }
+        return;
+      }
       
       // Show loading state
-      submitBtn.textContent = "Sending...";
+      submitBtn.classList.add("loading");
       submitBtn.disabled = true;
       
-      // Simulate form submission (replace with actual submission)
-      setTimeout(() => {
-        submitBtn.textContent = "Request Sent! ✓";
-        submitBtn.style.background = "linear-gradient(135deg, #11998e, #38ef7d)";
+      try {
+        // Simulate form submission (replace with actual endpoint)
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Success state
+        submitBtn.classList.remove("loading");
+        submitBtn.innerHTML = '<span class="btn-text">Request Sent! ✓</span>';
+        submitBtn.style.background = "linear-gradient(135deg, #10b981, #059669)";
         
         // Reset form after delay
         setTimeout(() => {
           consultationForm.reset();
-          submitBtn.textContent = originalText;
+          consultationForm.querySelectorAll(".valid, .invalid").forEach(el => {
+            el.classList.remove("valid", "invalid");
+          });
+          submitBtn.innerHTML = '<span class="btn-text">Get My Free Design Quote</span><span class="btn-loader"></span>';
           submitBtn.style.background = "";
           submitBtn.disabled = false;
         }, 3000);
-      }, 1500);
+        
+      } catch (error) {
+        submitBtn.classList.remove("loading");
+        submitBtn.innerHTML = '<span class="btn-text">Error - Try Again</span>';
+        submitBtn.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+        
+        setTimeout(() => {
+          submitBtn.innerHTML = '<span class="btn-text">Get My Free Design Quote</span><span class="btn-loader"></span>';
+          submitBtn.style.background = "";
+          submitBtn.disabled = false;
+        }, 2000);
+      }
     });
   }
 
-  // ===== PARALLAX EFFECT (subtle) =====
+  // ===== GALLERY FILTERS =====
+  const galleryFilters = document.querySelectorAll(".gallery__filter");
+  const galleryItems = document.querySelectorAll(".gallery__item");
+  
+  galleryFilters.forEach((filter) => {
+    filter.addEventListener("click", () => {
+      // Update active state
+      galleryFilters.forEach(f => f.classList.remove("active"));
+      filter.classList.add("active");
+      
+      const category = filter.dataset.filter;
+      
+      galleryItems.forEach((item) => {
+        if (category === "all" || item.dataset.category === category) {
+          item.classList.remove("hidden");
+          item.style.animation = "fadeInUp 0.5s ease forwards";
+        } else {
+          item.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  // ===== LIGHTBOX =====
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = lightbox?.querySelector(".lightbox__image");
+  const lightboxTitle = lightbox?.querySelector(".lightbox__title");
+  const lightboxDesc = lightbox?.querySelector(".lightbox__desc");
+  const lightboxCurrent = lightbox?.querySelector(".lightbox__current");
+  const lightboxTotal = lightbox?.querySelector(".lightbox__total");
+  
+  let currentImageIndex = 0;
+  let galleryImages = [];
+  
+  const openLightbox = (index) => {
+    if (!lightbox) return;
+    
+    currentImageIndex = index;
+    updateLightboxImage();
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+  
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+  };
+  
+  const updateLightboxImage = () => {
+    if (!galleryImages[currentImageIndex]) return;
+    
+    const item = galleryImages[currentImageIndex];
+    const img = item.querySelector("img");
+    
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt;
+    lightboxTitle.textContent = item.dataset.title || "";
+    lightboxDesc.textContent = item.dataset.desc || "";
+    lightboxCurrent.textContent = currentImageIndex + 1;
+    lightboxTotal.textContent = galleryImages.length;
+  };
+  
+  const nextImage = () => {
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    updateLightboxImage();
+  };
+  
+  const prevImage = () => {
+    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateLightboxImage();
+  };
+  
+  // Initialize lightbox
+  if (lightbox) {
+    galleryImages = Array.from(galleryItems);
+    
+    galleryItems.forEach((item, index) => {
+      item.addEventListener("click", () => openLightbox(index));
+    });
+    
+    lightbox.querySelector(".lightbox__close")?.addEventListener("click", closeLightbox);
+    lightbox.querySelector(".lightbox__next")?.addEventListener("click", nextImage);
+    lightbox.querySelector(".lightbox__prev")?.addEventListener("click", prevImage);
+    
+    // Close on backdrop click
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("active")) return;
+      
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+    });
+  }
+
+  // ===== BACK TO TOP BUTTON =====
+  const backToTop = document.querySelector(".back-to-top");
+  
+  if (backToTop) {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 500) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    }, { passive: true });
+    
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  // ===== PARALLAX EFFECT =====
   const hero = document.querySelector(".hero");
   
   if (hero && window.innerWidth > 768) {
@@ -253,40 +427,39 @@ ready(() => {
   // ===== MAGNETIC BUTTON EFFECT =====
   const magneticButtons = document.querySelectorAll(".btn--primary");
   
-  magneticButtons.forEach((btn) => {
-    btn.addEventListener("mousemove", (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
+  if (window.innerWidth > 768) {
+    magneticButtons.forEach((btn) => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+      });
       
-      btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+      btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "";
+      });
     });
-    
-    btn.addEventListener("mouseleave", () => {
-      btn.style.transform = "";
-    });
-  });
-
-  // ===== LAZY LOADING IMAGES =====
-  const lazyImages = document.querySelectorAll("img[data-src]");
-  
-  if (lazyImages.length > 0) {
-    const imageObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.removeAttribute("data-src");
-            imageObserver.unobserve(img);
-          }
-        });
-      },
-      { rootMargin: "50px" }
-    );
-
-    lazyImages.forEach((img) => imageObserver.observe(img));
   }
+
+  // ===== IMAGE SKELETON LOADER =====
+  const images = document.querySelectorAll("img[loading='lazy']");
+  
+  images.forEach((img) => {
+    if (img.complete) {
+      const skeleton = img.parentElement?.querySelector(".img-skeleton");
+      if (skeleton) skeleton.style.display = "none";
+    } else {
+      img.addEventListener("load", () => {
+        const skeleton = img.parentElement?.querySelector(".img-skeleton");
+        if (skeleton) {
+          skeleton.style.opacity = "0";
+          setTimeout(() => skeleton.style.display = "none", 300);
+        }
+      });
+    }
+  });
 
   // ===== SCROLL PROGRESS INDICATOR =====
   const createScrollProgress = () => {
@@ -318,53 +491,57 @@ ready(() => {
   const heroTitle = document.querySelector(".hero__content h1");
   
   if (heroTitle && window.innerWidth > 768) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = "";
-    heroTitle.style.opacity = "1";
-    
-    let i = 0;
-    const typeWriter = () => {
-      if (i < text.length) {
-        heroTitle.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 50);
-      }
-    };
-    
-    // Start typing after hero animation
-    setTimeout(typeWriter, 800);
+    // Check if typing was already done this session
+    if (!sessionStorage.getItem("typingDone")) {
+      const text = heroTitle.textContent;
+      heroTitle.textContent = "";
+      heroTitle.style.opacity = "1";
+      
+      let i = 0;
+      const typeWriter = () => {
+        if (i < text.length) {
+          heroTitle.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 50);
+        } else {
+          sessionStorage.setItem("typingDone", "true");
+        }
+      };
+      
+      setTimeout(typeWriter, 800);
+    }
   }
 
   // ===== TILT EFFECT FOR CARDS =====
   const tiltCards = document.querySelectorAll(".why-card, .process-card, .service-card");
   
-  tiltCards.forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      if (window.innerWidth < 992) return;
+  if (window.innerWidth > 992) {
+    tiltCards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+      });
       
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+      });
     });
-    
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "";
-    });
-  });
+  }
 
   // ===== WHATSAPP BUTTON PULSE =====
   const whatsappBtn = document.querySelector(".floating-button--whatsapp");
   
   if (whatsappBtn) {
-    // Add pulse notification after 5 seconds
     setTimeout(() => {
       const pulse = document.createElement("span");
+      pulse.className = "whatsapp-pulse";
       pulse.style.cssText = `
         position: absolute;
         top: -5px;
@@ -400,7 +577,6 @@ ready(() => {
     document.body.classList.remove("keyboard-nav");
   });
 
-  // Add focus styles for keyboard navigation
   const focusStyle = document.createElement("style");
   focusStyle.textContent = `
     body.keyboard-nav *:focus {
@@ -409,6 +585,25 @@ ready(() => {
     }
   `;
   document.head.appendChild(focusStyle);
+
+  // ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
+  const animateOnScroll = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const scrollObserver = new IntersectionObserver(animateOnScroll, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('[data-animate]').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    scrollObserver.observe(el);
+  });
 
   console.log("🏠 iDesigns website loaded successfully!");
 });
