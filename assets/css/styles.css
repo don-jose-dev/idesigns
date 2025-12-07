@@ -68,7 +68,15 @@ a:focus {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
   border-radius: var(--radius-sm);
+}
+
+/* Ensure all images are responsive */
+img[src*="images"] {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .container {
@@ -307,6 +315,7 @@ img {
 
 .brand img {
   width: 160px;
+  max-width: 100%;
   height: auto;
   border-radius: 0;
   transition: var(--transition);
@@ -968,6 +977,7 @@ img {
 
 .swiper-slide img {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
@@ -1221,6 +1231,7 @@ textarea {
 
 .partner__media img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   max-height: 450px;
   object-fit: contain;
@@ -1308,6 +1319,7 @@ textarea {
 
 .services-grid .service-card img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -1358,6 +1370,79 @@ textarea {
   box-shadow: var(--shadow-hover);
 }
 
+/* ===== GALLERY SECTION ===== */
+.gallery {
+  background: linear-gradient(180deg, var(--color-white) 0%, var(--color-gray-light) 100%);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 3;
+  background: var(--color-gray-soft);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.gallery__item img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.gallery__item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(26, 26, 46, 0.7) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.gallery__item::after {
+  content: "🔍";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 2.5rem;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.gallery__item:hover::before {
+  opacity: 1;
+}
+
+.gallery__item:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.gallery__item:hover img {
+  transform: scale(1.15);
+}
+
+.gallery__item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-8px);
+}
+
 /* ===== REVIEWS SECTION ===== */
 .reviews {
   background: var(--color-white);
@@ -1395,7 +1480,7 @@ textarea {
 }
 
 .review-card::before {
-  content: """;
+  content: '"';
   position: absolute;
   top: 1rem;
   right: 1.5rem;
@@ -1672,8 +1757,42 @@ textarea {
     padding: 0 1rem 3rem;
   }
 
+  .swiper-slide figure {
+    aspect-ratio: 3 / 2;
+  }
+
+  .swiper-slide img {
+    object-fit: cover;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery__item {
+    aspect-ratio: 1 / 1;
+  }
+
   .consultation__form-card {
     padding: 2rem;
+  }
+
+  .partner__media img {
+    max-height: 350px;
+  }
+
+  /* Ensure background images are responsive */
+  .hero__media::before {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .consultation::before {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
   }
 
   .footer__bottom {
@@ -1684,6 +1803,36 @@ textarea {
 
   .reveal {
     transform: translateY(40px);
+  }
+
+  /* Responsive images on mobile */
+  .gallery__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gallery__item {
+    aspect-ratio: 16 / 9;
+  }
+
+  .services-grid__list {
+    grid-template-columns: 1fr;
+  }
+
+  .why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partner__media img {
+    max-height: 300px;
+  }
+
+  .brand img {
+    width: 120px;
   }
 }
 
@@ -1716,6 +1865,50 @@ textarea {
 
   .section-heading h2 {
     font-size: 1.8rem;
+  }
+
+  /* Extra small devices - ensure all images scale properly */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .gallery__item,
+  .swiper-slide figure,
+  .service-card img,
+  .process-card__icon {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .gallery__item {
+    aspect-ratio: 1 / 1;
+  }
+
+  .swiper-slide figure {
+    aspect-ratio: 16 / 9;
+  }
+
+  .hero__media::before {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .consultation::before {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .partner__media img {
+    max-height: 250px;
+  }
+
+  .process-card__icon {
+    height: 120px;
+  }
+
+  .process-card__icon img {
+    object-fit: cover;
   }
 }
 
