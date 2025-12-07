@@ -1,0 +1,110 @@
+      <section class="section consultation" id="form">
+        <div class="container">
+          <div class="consultation__header reveal">
+            <span class="section-heading__pretitle">LET'S CONNECT</span>
+            <h2>GET FREE CONSULTATION REQUEST</h2>
+            <p>
+              Our interior designers and architects use next-gen design, technology, skilled workforce and implementation methods to solve not just today's home interior needs, but even the ones you don't foresee for tomorrow. Start your journey with us today by filling out the form, and let's create something beautiful together!
+            </p>
+          </div>
+          <div class="consultation__form-card reveal-scale">
+            <h3>Get A Free Consultation</h3>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="consultationForm" novalidate>
+              <div class="form-row">
+                <label class="form-group">
+                  <span>Name*</span>
+                  <div class="input-wrapper">
+                    <span class="icon icon--user" aria-hidden="true"></span>
+                    <input type="text" name="name" placeholder="Your Name" required minlength="2" />
+                    <span class="input-validation"></span>
+                  </div>
+                  <span class="error-message"></span>
+                </label>
+                <label class="form-group">
+                  <span>Phone Number*</span>
+                  <div class="input-wrapper">
+                    <span class="icon icon--phone" aria-hidden="true"></span>
+                    <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required pattern="[0-9+\\s]{10,15}" />
+                    <span class="input-validation"></span>
+                  </div>
+                  <span class="error-message"></span>
+                </label>
+              </div>
+              <div class="form-row">
+                <label class="form-group">
+                  <span>Email</span>
+                  <div class="input-wrapper">
+                    <span class="icon icon--mail" aria-hidden="true"></span>
+                    <input type="email" name="email" placeholder="Your Email" />
+                    <span class="input-validation"></span>
+                  </div>
+                  <span class="error-message"></span>
+                </label>
+                <label class="form-group">
+                  <span>Property Type*</span>
+                  <div class="input-wrapper">
+                    <span class="icon icon--home" aria-hidden="true"></span>
+                    <select name="property" required>
+                      <option value="" disabled selected>Select</option>
+                      <option>1 BHK</option>
+                      <option>2 BHK</option>
+                      <option>3 BHK</option>
+                      <option>Villa</option>
+                      <option>Office</option>
+                      <option>Commercial</option>
+                    </select>
+                    <span class="input-validation"></span>
+                  </div>
+                  <span class="error-message"></span>
+                </label>
+              </div>
+              <label class="form-group">
+                <span>Budget Range</span>
+                <div class="input-wrapper">
+                  <span class="icon icon--wallet" aria-hidden="true"></span>
+                  <select name="budget">
+                    <option value="" disabled selected>Select</option>
+                    <option>Under ₹5L</option>
+                    <option>₹5-10L</option>
+                    <option>₹10-20L</option>
+                    <option>Above ₹20L</option>
+                  </select>
+                </div>
+              </label>
+              <label class="form-group textarea">
+                <span>Your Message</span>
+                <div class="input-wrapper">
+                  <span class="icon icon--message" aria-hidden="true"></span>
+                  <textarea name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                </div>
+              </label>
+              <button class="btn btn--primary btn--large" type="submit">
+                <span class="btn-text">Get My Free Design Quote</span>
+                <span class="btn-loader"></span>
+              </button>
+            </form>
+            <div class="form-trust">
+              <span>
+                <span class="icon icon--lock" aria-hidden="true"></span>
+                Your info is secure
+              </span>
+              <span>
+                <span class="icon icon--clock" aria-hidden="true"></span>
+                Response within 2 hours
+              </span>
+            </div>
+            <div class="form-alt">
+              <span>Or contact directly:</span>
+              <a class="btn btn--whatsapp-sm" href="https://wa.me/919746174404?text=Hi%20iDesigns%2C%20I'm%20interested%20in%20interior%20design%20services" target="_blank" rel="noopener">
+                <span class="icon icon--whatsapp" aria-hidden="true"></span>
+                WhatsApp Us
+              </a>
+              <a class="btn btn--call-sm" href="tel:+919746174404">
+                <span class="icon icon--phone" aria-hidden="true"></span>
+                Call Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
