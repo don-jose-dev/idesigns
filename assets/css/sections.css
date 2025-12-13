@@ -1487,8 +1487,8 @@
 
   /* Extra small devices - ensure all images scale properly */
   img {
-    max-width: 100% !important;
-    height: auto !important;
+    max-width: 100%;
+    height: auto;
   }
 
   .gallery__item,
