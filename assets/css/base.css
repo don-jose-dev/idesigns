@@ -210,3 +210,18 @@ img[src*="images"] {
   100% { background-position: -200% 0; }
 }
 
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 576px) {
+  .container {
+    width: min(100% - 2rem, var(--max-width));
+  }
+  
+  .section {
+    padding: 50px 0;
+  }
+  
+  .section-heading {
+    margin-bottom: 2.5rem;
+  }
+}
+
